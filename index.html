@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta ="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Drawing Showcase</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+           
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #1e1e2e, #3a3a52);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border:5px inset red;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .content {
+            text-align: center;
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            width: 80%;
+            padding: 20px;
+            gap: 10px;
+        }
+
+        .gallery .box {
+            width: 200px;
+            height: 200px;
+            background: #555;
+            border:1px solid blue;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .gallery .box:hover {
+            transform: scale(1.1);
+        }
+
+        .art-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            background: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .extra-boxes {
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .extra-boxes .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .extra-boxes .box {
+            width:165px; /* Increased size */
+            height: 180px; /* Increased size */
+            background: #777;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .extra-boxes .box img {
+            width: 100%; /* Image will fill the box */
+            height: 100%; /* Image will fill the box */
+            border-radius: 10px; /* Match the box's border-radius */
+            object-fit: cover; /* Ensure the image covers the box without distortion */
+        }
+
+        .active .extra-boxes {
+            display: flex;
+        }
+
+        button {
+            height: 40px;
+            width: 140px;
+            background-color: blue;
+            color: white;
+            margin: 20px;
+           
+ }
+
+    </style>
+</head>
+<body onclick="hideExtraBoxes(event)">
+    <div class="profile">
+        <img src="https://i.postimg.cc/rF3vrcVV/IMG-20250215-135615.jpg" alt="Profile Image">
+        <h2>|| thefineline.art ||</h2>
+    </div>
+
+    <div class="content">
+        <p>
+🙏🏼Hello! Do you love art? Are you someone who sees meaning in every piece of art  Art is a beautiful thing, and when an artist creates with true dedication, it brings life to the artwork. No one can then say it's just colors on a canvas. If you love art or want to learn it, welcome to thefineline.art ____❤❤❤
+ <p>
+    </div>
+
+    <h2>view Drawing's</h2>
+    <p> </p>
+
+    <div class="gallery">
+        <div class="box"><img src="https://i.postimg.cc/ZRPySfCp/IMG-20250215-163142.jpg " alt="Drawing 1" width="180"></div>
+        <div class="box"><img src="https://i.postimg.cc/V5QWvvXp/IMG-20250215-164541.jpg " alt="Drawing 2" width="180"></div>
+        <div class="box"><img src=" https://i.postimg.cc/gkmKCXkL/IMG-20250215-164808.jpg" alt="Drawing 3" width="180"></div>
+        <div class="box"><img src="https://i.postimg.cc/kGXBcmqG/IMG-20250215-164826.jpg " alt="Drawing 4" width="180"></div>
+        <div class="box"><img src=" https://i.postimg.cc/Y92rczVy/IMG-20250215-164416.jpg" alt="Drawing 5" width="180"></div>
+    </div>
+
+    <h2>See Artwork's</h2>
+    <p> </p>
+    <br/>
+    <br/>
+
+    <div class="art-container" onclick="toggleExtraBoxes(event, this)">
+        <img src=" https://i.postimg.cc/zGfMBySy/IMG-20250215-133527.jpg
+" alt="Artwork" style="width: 100%; height: 100%; border-radius: 10px;">
+        <div class="extra-boxes">
+            <div class="row">
+                <div class="box"><img src="https://i.postimg.cc/d0p9J14c/IMG-20250215-133455.jpg
+ " alt="Step 1"></div>
+                <div class="box"><img src=" https://i.postimg.cc/NMrv0Kt6/IMG-20250215-133512.jpg" alt="Step 2"></div>
+            </div>
+            <div class="row">
+                <div class="box"><img src=" https://i.postimg.cc/zGfMBySy/IMG-20250215-133527.jpg" alt="Step 3"></div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="art-container" onclick="toggleExtraBoxes(event, this)">
+        <img src=" https://i.postimg.cc/ryBhCd90/IMG-20250215-130021.jpg" alt="Artwork" style="width: 100%; height: 100%; border-radius: 10px;">
+        <div class="extra-boxes">
+            <div class="row">
+                <div class="box"><img src="https://i.postimg.cc/4xgsMxXn/IMG-20250215-125929.jpg" alt="Step 1"></div>
+                <div class="box"><img src=" https://i.postimg.cc/bN2wW5bV/IMG-20250215-130009.jpg" alt="Step 2"></div>
+            </div>
+            <div class="row">
+                <div class="box"><img src="https://i.postimg.cc/ryBhCd90/IMG-20250215-130021.jpg " alt="Step 3"></div>
+            </div>
+        </div>
+    </div>
+  <br/>
+    <br/>
+    <br/>
+
+    <div class="art-container" onclick="toggleExtraBoxes(event, this)">
+     <img src="https://i.postimg.cc/2yMqZbLC/IMG-20250215-133439.jpg
+" alt="Artwork" style="width: 100%; height: 100%; border-radius: 10px;">
+        <div class="extra-boxes">
+            <div class="row">
+                <div class="box"><img src=" https://i.postimg.cc/G3QqycpG/IMG-20250215-133420.jpg" alt="Step 1"></div>
+                <div class="box"><img src=" https://i.postimg.cc/Bn1TMsJh/IMG-20250215-133430.jpg" alt="Step 2"></div>
+            </div>
+            <div class="row">
+                <div class="box"><img src=" https://i.postimg.cc/2yMqZbLC/IMG-20250215-133439.jpg" alt="Step 3"></div>
+            </div>
+        </div>
+    </div>
+  <br/>
+    <br/>
+    <br/>
+
+<a href="https://www.instagram.com/thefineline.art" target="_blank">
+    <button type="button">Go Instagram Page</button>
+</a>
+
+
+
+    <script>
+        function toggleExtraBoxes(event, element) {
+            event.stopPropagation();
+            let extraBoxes = element.querySelector('.extra-boxes');
+            element.classList.toggle('active');
+        }
+
+        function hideExtraBoxes(event) {
+            document.querySelectorAll('.art-container').forEach(container => {
+                if (!container.contains(event.target)) {
+                    container.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
